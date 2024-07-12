@@ -1,0 +1,360 @@
+{
+	"info": {
+		"_postman_id": "7bf64a67-acbb-45d5-9c90-f21f079063a0",
+		"name": "MiniBankAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "16174432",
+		"_collection_link": "https://***********~507934a8-06ba-4c4f-b3d9-e6a8037f118e/collection/16174432-7bf64a67-acbb-45d5-9c90-f21f079063a0?action=share&source=collection_link&creator=16174432"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "SignUp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"customerName\": \"Jesse Emukule\",\n  \"emailAddress\": \"omukubwajesse@gmail.com\",\n  \"customerId\": \"399575758\",\n  \"role\": \"User\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:1963/api/v1/Authentication/Register"
+					},
+					"response": []
+				},
+				{
+					"name": "SignIn",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"customerId\": \"212343474\",\n  \"pin\": \"8924\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:1963/api/v1/Authentication/Login"
+					},
+					"response": []
+				},
+				{
+					"name": "RequestPinResetCode",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:1963/api/v1/Authentication/ResetCode?customerId=212343474",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "1963",
+							"path": [
+								"api",
+								"v1",
+								"Authentication",
+								"ResetCode"
+							],
+							"query": [
+								{
+									"key": "customerId",
+									"value": "212343474"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ResetPIn",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"customerId\": \"212343474\",\n  \"token\": \"163822\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:1963/api/v1/Authentication/ChangePin"
+					},
+					"response": []
+				},
+				{
+					"name": "Profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMTIzNDM0NzQiLCJpYXQiOjE3MjA3MDY1NDcsImV4cCI6MTcyMDcwODM0N30.mmCufRcuzX9TGFuDuwPaaFKidBjBFAp2Je99C5XY4fc"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:1963/api/v1/Authentication/Profile?customerId=212343474",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "1963",
+							"path": [
+								"api",
+								"v1",
+								"Authentication",
+								"Profile"
+							],
+							"query": [
+								{
+									"key": "customerId",
+									"value": "212343474"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Core",
+			"item": [
+				{
+					"name": "AccountBalance",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMTIzNDM0NzQiLCJpYXQiOjE3MjA3MDY1NDcsImV4cCI6MTcyMDcwODM0N30.mmCufRcuzX9TGFuDuwPaaFKidBjBFAp2Je99C5XY4fc"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:1963/api/v1/Account/Balance?accountNo=569492685",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "1963",
+							"path": [
+								"api",
+								"v1",
+								"Account",
+								"Balance"
+							],
+							"query": [
+								{
+									"key": "accountNo",
+									"value": "569492685"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ministatement",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMTIzNDM0NzQiLCJpYXQiOjE3MjA3MDg1ODMsImV4cCI6MTcyMDcxMDM4M30.DftBAAjLjd_NVJkLv5G_rgszcnWHYkqpVONJNC-5eTo"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:1963/api/v1/Account/MiniStatement?accountNo=569492685",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "1963",
+							"path": [
+								"api",
+								"v1",
+								"Account",
+								"MiniStatement"
+							],
+							"query": [
+								{
+									"key": "accountNo",
+									"value": "569492685"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FullStatement",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMTIzNDM0NzQiLCJpYXQiOjE3MjA3MDg1ODMsImV4cCI6MTcyMDcxMDM4M30.DftBAAjLjd_NVJkLv5G_rgszcnWHYkqpVONJNC-5eTo"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:1963/api/v1/Account/FullStatement?accountNo=569492685",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "1963",
+							"path": [
+								"api",
+								"v1",
+								"Account",
+								"FullStatement"
+							],
+							"query": [
+								{
+									"key": "accountNo",
+									"value": "569492685"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deposit",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMTIzNDM0NzQiLCJpYXQiOjE3MjA3MDY1NDcsImV4cCI6MTcyMDcwODM0N30.mmCufRcuzX9TGFuDuwPaaFKidBjBFAp2Je99C5XY4fc"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"accountNumber\": \"569492685\",\n  \"amount\": 2000000,\n  \"customerId\": \"212343474\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:1963/api/v1/Transaction/Deposit"
+					},
+					"response": []
+				},
+				{
+					"name": "Withdraw",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMTIzNDM0NzQiLCJpYXQiOjE3MjA3MDY1NDcsImV4cCI6MTcyMDcwODM0N30.mmCufRcuzX9TGFuDuwPaaFKidBjBFAp2Je99C5XY4fc"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"accountNumber\": \"569492685\",\n  \"amount\": 50000,\n  \"customerId\": \"212343474\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:1963/api/v1/Transaction/Withdraw"
+					},
+					"response": []
+				},
+				{
+					"name": "Funds Transfer",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMTIzNDM0NzQiLCJpYXQiOjE3MjA3MDY1NDcsImV4cCI6MTcyMDcwODM0N30.mmCufRcuzX9TGFuDuwPaaFKidBjBFAp2Je99C5XY4fc"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"accountNumber\": \"569492685\",\n  \"creditAccountNumber\":\"201202401\",\n  \"amount\": 150000,\n  \"customerId\": \"212343474\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:1963/api/v1/Transaction/Transfer"
+					},
+					"response": []
+				},
+				{
+					"name": "AccountsList",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMTIzNDM0NzQiLCJpYXQiOjE3MjA3MDY1NDcsImV4cCI6MTcyMDcwODM0N30.mmCufRcuzX9TGFuDuwPaaFKidBjBFAp2Je99C5XY4fc"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:1963/api/v1/Transaction/CreditAccounts"
+					},
+					"response": []
+				},
+				{
+					"name": "SearchByTransactionCode",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMTIzNDM0NzQiLCJpYXQiOjE3MjA3MDg1ODMsImV4cCI6MTcyMDcxMDM4M30.DftBAAjLjd_NVJkLv5G_rgszcnWHYkqpVONJNC-5eTo"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:1963/api/v1/Transaction/Search?code=XD9C27DA",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "1963",
+							"path": [
+								"api",
+								"v1",
+								"Transaction",
+								"Search"
+							],
+							"query": [
+								{
+									"key": "code",
+									"value": "XD9C27DA"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
